@@ -99,13 +99,14 @@
 		F51528C721AE450A00790A8A /* GitWorkshop */ = {
 			isa = PBXGroup;
 			children = (
-				F51528C821AE450A00790A8A /* AppDelegate.swift */,
-				F51528CA21AE450A00790A8A /* ViewController.swift */,
-				F51528CC21AE450A00790A8A /* Main.storyboard */,
-				F51528D221AE450C00790A8A /* Assets.xcassets */,
-				F51528D421AE450C00790A8A /* LaunchScreen.storyboard */,
+				F51528FF21AF8D4E00790A8A /* App Delegate */,
+				F51528FE21AF8D3C00790A8A /* Assets */,
+				F51528FB21AF8D0700790A8A /* Controller */,
+				F51528FD21AF8D2700790A8A /* Core Data */,
+				F51528F921AF8CBF00790A8A /* Model */,
+				F51528FC21AF8D1700790A8A /* Storyboards */,
+				F51528FA21AF8CF900790A8A /* View */,
 				F51528D721AE450C00790A8A /* Info.plist */,
-				F51528CF21AE450A00790A8A /* GitWorkshop.xcdatamodeld */,
 			);
 			path = GitWorkshop;
 			sourceTree = "<group>";
@@ -126,6 +127,61 @@
 				F51528ED21AE450C00790A8A /* Info.plist */,
 			);
 			path = GitWorkshopUITests;
+			sourceTree = "<group>";
+		};
+		F51528F921AF8CBF00790A8A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F51528FA21AF8CF900790A8A /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F51528FB21AF8D0700790A8A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F51528CA21AE450A00790A8A /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		F51528FC21AF8D1700790A8A /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				F51528CC21AE450A00790A8A /* Main.storyboard */,
+				F51528D421AE450C00790A8A /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		F51528FD21AF8D2700790A8A /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				F51528CF21AE450A00790A8A /* GitWorkshop.xcdatamodeld */,
+			);
+			path = "Core Data";
+			sourceTree = "<group>";
+		};
+		F51528FE21AF8D3C00790A8A /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				F51528D221AE450C00790A8A /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		F51528FF21AF8D4E00790A8A /* App Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				F51528C821AE450A00790A8A /* AppDelegate.swift */,
+			);
+			path = "App Delegate";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
