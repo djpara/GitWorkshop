@@ -15,6 +15,9 @@
 		F51528D621AE450C00790A8A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F51528D421AE450C00790A8A /* LaunchScreen.storyboard */; };
 		F51528E121AE450C00790A8A /* GitWorkshopTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51528E021AE450C00790A8A /* GitWorkshopTests.swift */; };
 		F51528EC21AE450C00790A8A /* GitWorkshopUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51528EB21AE450C00790A8A /* GitWorkshopUITests.swift */; };
+		F515290121AF8E6F00790A8A /* TextBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F515290021AF8E6F00790A8A /* TextBoxView.swift */; };
+		F515290321AF98F700790A8A /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F515290221AF98F700790A8A /* Theme.swift */; };
+		F515290521AF9B4C00790A8A /* ViewDividerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F515290421AF9B4C00790A8A /* ViewDividerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,9 @@
 		F51528E721AE450C00790A8A /* GitWorkshopUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GitWorkshopUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F51528EB21AE450C00790A8A /* GitWorkshopUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitWorkshopUITests.swift; sourceTree = "<group>"; };
 		F51528ED21AE450C00790A8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F515290021AF8E6F00790A8A /* TextBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextBoxView.swift; sourceTree = "<group>"; };
+		F515290221AF98F700790A8A /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		F515290421AF9B4C00790A8A /* ViewDividerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewDividerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,13 +105,14 @@
 		F51528C721AE450A00790A8A /* GitWorkshop */ = {
 			isa = PBXGroup;
 			children = (
-				F51528C821AE450A00790A8A /* AppDelegate.swift */,
-				F51528CA21AE450A00790A8A /* ViewController.swift */,
-				F51528CC21AE450A00790A8A /* Main.storyboard */,
-				F51528D221AE450C00790A8A /* Assets.xcassets */,
-				F51528D421AE450C00790A8A /* LaunchScreen.storyboard */,
+				F51528FF21AF8D4E00790A8A /* App Delegate */,
+				F51528FE21AF8D3C00790A8A /* Assets */,
+				F51528FB21AF8D0700790A8A /* Controller */,
+				F51528FD21AF8D2700790A8A /* Core Data */,
+				F51528F921AF8CBF00790A8A /* Model */,
+				F51528FC21AF8D1700790A8A /* Storyboards */,
+				F51528FA21AF8CF900790A8A /* View */,
 				F51528D721AE450C00790A8A /* Info.plist */,
-				F51528CF21AE450A00790A8A /* GitWorkshop.xcdatamodeld */,
 			);
 			path = GitWorkshop;
 			sourceTree = "<group>";
@@ -126,6 +133,64 @@
 				F51528ED21AE450C00790A8A /* Info.plist */,
 			);
 			path = GitWorkshopUITests;
+			sourceTree = "<group>";
+		};
+		F51528F921AF8CBF00790A8A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F515290221AF98F700790A8A /* Theme.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F51528FA21AF8CF900790A8A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F515290021AF8E6F00790A8A /* TextBoxView.swift */,
+				F515290421AF9B4C00790A8A /* ViewDividerView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F51528FB21AF8D0700790A8A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F51528CA21AE450A00790A8A /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		F51528FC21AF8D1700790A8A /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				F51528CC21AE450A00790A8A /* Main.storyboard */,
+				F51528D421AE450C00790A8A /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		F51528FD21AF8D2700790A8A /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				F51528CF21AE450A00790A8A /* GitWorkshop.xcdatamodeld */,
+			);
+			path = "Core Data";
+			sourceTree = "<group>";
+		};
+		F51528FE21AF8D3C00790A8A /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				F51528D221AE450C00790A8A /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		F51528FF21AF8D4E00790A8A /* App Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				F51528C821AE450A00790A8A /* AppDelegate.swift */,
+			);
+			path = "App Delegate";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,8 +325,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				F51528CB21AE450A00790A8A /* ViewController.swift in Sources */,
+				F515290121AF8E6F00790A8A /* TextBoxView.swift in Sources */,
+				F515290321AF98F700790A8A /* Theme.swift in Sources */,
 				F51528D121AE450A00790A8A /* GitWorkshop.xcdatamodeld in Sources */,
 				F51528C921AE450A00790A8A /* AppDelegate.swift in Sources */,
+				F515290521AF9B4C00790A8A /* ViewDividerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
