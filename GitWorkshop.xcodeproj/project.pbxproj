@@ -15,6 +15,9 @@
 		F51528D621AE450C00790A8A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F51528D421AE450C00790A8A /* LaunchScreen.storyboard */; };
 		F51528E121AE450C00790A8A /* GitWorkshopTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51528E021AE450C00790A8A /* GitWorkshopTests.swift */; };
 		F51528EC21AE450C00790A8A /* GitWorkshopUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51528EB21AE450C00790A8A /* GitWorkshopUITests.swift */; };
+		F515290121AF8E6F00790A8A /* TextBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F515290021AF8E6F00790A8A /* TextBoxView.swift */; };
+		F515290321AF98F700790A8A /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F515290221AF98F700790A8A /* Theme.swift */; };
+		F515290521AF9B4C00790A8A /* ViewDividerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F515290421AF9B4C00790A8A /* ViewDividerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,9 @@
 		F51528E721AE450C00790A8A /* GitWorkshopUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GitWorkshopUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F51528EB21AE450C00790A8A /* GitWorkshopUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitWorkshopUITests.swift; sourceTree = "<group>"; };
 		F51528ED21AE450C00790A8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F515290021AF8E6F00790A8A /* TextBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextBoxView.swift; sourceTree = "<group>"; };
+		F515290221AF98F700790A8A /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		F515290421AF9B4C00790A8A /* ViewDividerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewDividerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +138,7 @@
 		F51528F921AF8CBF00790A8A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F515290221AF98F700790A8A /* Theme.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -139,6 +146,8 @@
 		F51528FA21AF8CF900790A8A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F515290021AF8E6F00790A8A /* TextBoxView.swift */,
+				F515290421AF9B4C00790A8A /* ViewDividerView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -316,8 +325,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				F51528CB21AE450A00790A8A /* ViewController.swift in Sources */,
+				F515290121AF8E6F00790A8A /* TextBoxView.swift in Sources */,
+				F515290321AF98F700790A8A /* Theme.swift in Sources */,
 				F51528D121AE450A00790A8A /* GitWorkshop.xcdatamodeld in Sources */,
 				F51528C921AE450A00790A8A /* AppDelegate.swift in Sources */,
+				F515290521AF9B4C00790A8A /* ViewDividerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
