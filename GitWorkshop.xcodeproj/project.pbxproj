@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		57A89DAE21B4E66300C02C39 /* TextInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A89DAD21B4E66300C02C39 /* TextInputView.swift */; };
 		F51528C921AE450A00790A8A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51528C821AE450A00790A8A /* AppDelegate.swift */; };
 		F51528CB21AE450A00790A8A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51528CA21AE450A00790A8A /* ViewController.swift */; };
 		F51528CE21AE450A00790A8A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F51528CC21AE450A00790A8A /* Main.storyboard */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		57A89DAD21B4E66300C02C39 /* TextInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputView.swift; sourceTree = "<group>"; };
 		F51528C521AE450A00790A8A /* GitWorkshop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitWorkshop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F51528C821AE450A00790A8A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F51528CA21AE450A00790A8A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				F515290021AF8E6F00790A8A /* TextBoxView.swift */,
+				57A89DAD21B4E66300C02C39 /* TextInputView.swift */,
 				F515290421AF9B4C00790A8A /* ViewDividerView.swift */,
 			);
 			path = View;
@@ -326,6 +329,7 @@
 			files = (
 				F51528CB21AE450A00790A8A /* ViewController.swift in Sources */,
 				F515290121AF8E6F00790A8A /* TextBoxView.swift in Sources */,
+				57A89DAE21B4E66300C02C39 /* TextInputView.swift in Sources */,
 				F515290321AF98F700790A8A /* Theme.swift in Sources */,
 				F51528D121AE450A00790A8A /* GitWorkshop.xcdatamodeld in Sources */,
 				F51528C921AE450A00790A8A /* AppDelegate.swift in Sources */,
