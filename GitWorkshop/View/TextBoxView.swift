@@ -80,6 +80,7 @@ class TextBoxView: UIView {
     // MARK: - Override Functions
     
     override func becomeFirstResponder() -> Bool {
+        if _title == "" { _title = _originalTitle }
         return textInputView.becomeFirstResponder()
     }
     
@@ -185,7 +186,6 @@ class TextBoxView: UIView {
     
     @objc private func submitTitle() {
         _ = textInputView.resignFirstResponder()
-        if _title == "" { _title = _originalTitle }
         delegate?.textBoxView(self, didSubmit: textInputView.text ?? "")
     }
 }
