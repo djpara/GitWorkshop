@@ -32,6 +32,8 @@ class ViewDividerView: UIView {
     func setBackgroundColor(_ color: UIColor) {
         backgroundColor = color
     }
+    
+    // TODO - : Remove commented code below
 
     /*
     // Only override draw() if you perform custom drawing.

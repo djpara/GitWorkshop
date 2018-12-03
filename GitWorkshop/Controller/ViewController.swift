@@ -10,14 +10,30 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    // MARK: - Constant Private Properties
+    
+    private let TEXT_BOX_WIDTH = CGFloat(250) // TODO: - Change width to 200
+    private let TEXT_BOX_HEIGHT = CGFloat(200) // TODO: - Change height to 150
+    
+    private let ADD_VIEW_TITLE_BUTTON_WIDTH = CGFloat(175) // TODO: - Change width
+    private let ADD_VIEW_TITLE_BUTTON_HEIGHT = CGFloat(44) // TODO: - Change height
+    
+    // MARK: - Lazy Private Properties
+    
     lazy private var textBoxView: TextBoxView = {
-        let newTextBox = TextBoxView(title: "Title", description: "Please enter a title in the text field below", placeholderText: "Enter title") // TODO: - Change title parameter to pass
-        newTextBox.dataSource = self
+        let newTextBox = TextBoxView(title: "Title", // TODO: - Change title parameter to pass
+                                     description: "Please enter a title in the text field below",
+                                     placeholderText: "Enter title")
+        newTextBox.delegate = self
         return newTextBox
     }()
     
     lazy private var buttonAddViewTitle: UIView = {
-        let newButton = UIButton(frame: CGRect(x: UIScreen.main.bounds.width - 185, y: UIScreen.main.bounds.height - 88, width: 175, height: 44))
+        let newButton = UIButton(type: .system)
+        newButton.frame = CGRect(x: view.frame.width/2 - ADD_VIEW_TITLE_BUTTON_WIDTH/2,
+                                 y: view.frame.height - 88,
+                                 width: ADD_VIEW_TITLE_BUTTON_WIDTH,
+                                 height: ADD_VIEW_TITLE_BUTTON_HEIGHT)
         newButton.setTitleColor(Theme.Color.popupBackgroundColor, for: .normal)
         newButton.setTitle("Add Title", for: .normal)
         newButton.titleLabel?.font = Theme.Font.style(.demiBold, size: 18) // TODO: - Change font size
@@ -47,7 +63,9 @@ class ViewController: UIViewController {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        _ = textBoxView.resignFirstResponder()
+        if !textBoxView.resignFirstResponder() {
+            removeFromSuperView(textBoxView)
+        }
     }
 
     // MARK: - Private Functions
@@ -70,8 +88,12 @@ class ViewController: UIViewController {
     
     fileprivate func removeFromSuperView(_ subview: UIView) {
         UIView.animate(withDuration: 0.5, animations: {
-            subview.frame = CGRect(x: self.view.center.x, y: UIScreen.main.bounds.height, width: 0, height: 0)
+            subview.frame = CGRect(x: self.view.center.x - (subview.frame.width/2),
+                                   y: UIScreen.main.bounds.height,
+                                   width: subview.frame.width,
+                                   height: subview.frame.height)
         }, completion: { _ in
+            self.buttonAddViewTitle.isHidden = false
             subview.removeFromSuperview()
         })
     }
@@ -80,16 +102,25 @@ class ViewController: UIViewController {
     
     @objc private func displayTextBox() {
         // Add the text box to view
-        textBoxView.frame = CGRect(x: self.view.center.x - 100, y: UIScreen.main.bounds.height, width: 200, height: 150)
+        buttonAddViewTitle.isHidden = true
+        textBoxView.frame = CGRect(x: view.center.x - (TEXT_BOX_WIDTH/2),
+                                   y: UIScreen.main.bounds.height,
+                                   width: TEXT_BOX_WIDTH,
+                                   height: TEXT_BOX_HEIGHT)
         view.addSubview(textBoxView)
         UIView.animate(withDuration: 0.5, animations: {
-            self.textBoxView.frame = CGRect(x: self.view.center.x - 100, y: self.view.center.y - 200, width: 200, height: 150)
+            self.textBoxView.frame = CGRect(x: self.view.center.x - (self.TEXT_BOX_WIDTH/2),
+                                            y: self.view.center.y - 200,
+                                            width: self.TEXT_BOX_WIDTH,
+                                            height: self.TEXT_BOX_HEIGHT)
+        }, completion: { _ in
+            _ = self.textBoxView.becomeFirstResponder()
         })
     }
 
 }
 
-extension ViewController: TextBoxViewDataSource {
+extension ViewController: TextBoxViewDelegate {
     func textBoxView(_ textBoxView: TextBoxView, didSubmit input: String) {
         labelTitle.text = input
         removeFromSuperView(textBoxView)

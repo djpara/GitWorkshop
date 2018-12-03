@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol TextBoxViewDataSource: class {
+protocol TextBoxViewDelegate: class {
     func textBoxView(_ textBoxView: TextBoxView, didSubmit input: String)
 }
 
@@ -16,7 +16,7 @@ class TextBoxView: UIView {
     
     // MARK: - Public Properties
     
-    public weak var dataSource: TextBoxViewDataSource?
+    public weak var delegate: TextBoxViewDelegate?
     
     // MARK: - Private Properties
     
@@ -24,16 +24,9 @@ class TextBoxView: UIView {
         didSet { labelTitle.text = _title }
     }
     
+    private var _originalTitle: String?
     private var _description: String?
     private var _placeholderString: String?
-    
-    lazy private var textFieldUserInput: UITextField = {
-        let newTextField = UITextField()
-        newTextField.returnKeyType = .go
-        newTextField.font = Theme.Font.body
-        newTextField.addTarget(self, action: #selector(updateTitle), for: .editingChanged)
-        return newTextField
-    }()
     
     lazy private var labelTitle: UILabel = {
         let newLabel = UILabel()
@@ -55,10 +48,19 @@ class TextBoxView: UIView {
         return newView
     }()
     
+    lazy private var textInputView: TextInputView = {
+        let newTextInputView = TextInputView()
+        newTextInputView.translatesAutoresizingMaskIntoConstraints = false
+        newTextInputView.backgroundColor = Theme.Color.backgroundColor
+        newTextInputView.delegate = self
+        return newTextInputView
+    }()
+    
     // MARK: - Initializers
     
     convenience init(title: String, description: String? = nil, placeholderText: String? = nil) {
         self.init()
+        _originalTitle = title
         _title = title
         _description = description
         _placeholderString = placeholderText
@@ -77,13 +79,12 @@ class TextBoxView: UIView {
     
     // MARK: - Override Functions
     
+    override func becomeFirstResponder() -> Bool {
+        return textInputView.becomeFirstResponder()
+    }
+    
     override func resignFirstResponder() -> Bool {
-        if textFieldUserInput.isFirstResponder {
-            textFieldUserInput.resignFirstResponder()
-            return true
-        }
-        
-        return false
+        return textInputView.resignFirstResponder()
     }
     
     // MARK: - Private Functions
@@ -93,7 +94,7 @@ class TextBoxView: UIView {
         configureView()
         configureLabel(labelTitle, with: _title)
         configureLabel(labelDescription, with: _description)
-        configureTextField(textFieldUserInput, with: _placeholderString)
+        configureTextInputView(textInputView, with: _placeholderString)
     }
     
     /// Configure view
@@ -115,18 +116,16 @@ class TextBoxView: UIView {
     }
     
     /// Configure text field
-    private func configureTextField(_ textField: UITextField, with placeholderString: String? = "") {
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.clipsToBounds = true
-        textField.delegate = self
-        textField.borderStyle = .roundedRect
-        textField.placeholder = placeholderString
-        addSubview(textField)
+    private func configureTextInputView(_ textInputView: TextInputView, with placeholderString: String? = "") {
+        textInputView.translatesAutoresizingMaskIntoConstraints = false
+        textInputView.delegate = self
+        textInputView.placeholder = placeholderString
+        textInputView.layer.cornerRadius = 4
+        addSubview(textInputView)
     }
     
     /// Lays out optional divider subview when necessary and sets the constraints on all subviews
     private func layoutAndConstrainSubviews() {
-        
         var lastBottomAnchor = topAnchor
         
         if _title != nil {
@@ -162,34 +161,40 @@ class TextBoxView: UIView {
             lastBottomAnchor = labelDescription.bottomAnchor
         }
         
-        // Constrain Description
+        // Constrain Text Field
         NSLayoutConstraint.activate([
-            textFieldUserInput.topAnchor.constraint(equalTo: lastBottomAnchor, constant: 8),
-            textFieldUserInput.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
-            textFieldUserInput.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
-            textFieldUserInput.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8),
-            textFieldUserInput.heightAnchor.constraint(equalToConstant: 30),
+            textInputView.topAnchor.constraint(equalTo: lastBottomAnchor, constant: 8),
+            textInputView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
+            textInputView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
+            textInputView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8),
+            textInputView.heightAnchor.constraint(equalToConstant: 30),
             ])
     }
     
     // MARK: - Selector Functions
     
     @objc private func updateTitle() {
-        if textFieldUserInput.text?.count == 26 {
-            textFieldUserInput.text?.removeLast()
+        let textCount = textInputView.text?.count ?? 0
+        if textCount >= 26 {
+            textInputView.text?.removeLast(textCount - 26)
             return
         }
         
-        _title = textFieldUserInput.text
+        _title = textInputView.text
+    }
+    
+    @objc private func submitTitle() {
+        _ = textInputView.resignFirstResponder()
+        if _title == "" { _title = _originalTitle }
+        delegate?.textBoxView(self, didSubmit: textInputView.text ?? "")
     }
 }
 
-extension TextBoxView: UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        dataSource?.textBoxView(self, didSubmit: _title ?? "")
-        return true
+extension TextBoxView: TextInputViewDelegate {
+    func textInputView(_ textInputView: TextInputView, didSubmit input: String) {
+        submitTitle()
+    }
+    func textInputView(_ textInputView: TextInputView, textInputDidChangeTo input: String) {
+        updateTitle()
     }
 }
-
-
