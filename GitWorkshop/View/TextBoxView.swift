@@ -80,12 +80,15 @@ class TextBoxView: UIView {
     // MARK: - Override Functions
     
     override func becomeFirstResponder() -> Bool {
-        if _title == "" { _title = _originalTitle }
         return textInputView.becomeFirstResponder()
     }
     
     override func resignFirstResponder() -> Bool {
         return textInputView.resignFirstResponder()
+    }
+    
+    override func willMove(toSuperview newSuperview: UIView?) {
+        if _title == "" { _title = _originalTitle }
     }
     
     // MARK: - Private Functions
