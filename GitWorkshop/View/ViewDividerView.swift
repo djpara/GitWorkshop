@@ -33,14 +33,14 @@ class ViewDividerView: UIView {
         backgroundColor = color
     }
     
-    // TODO - : Remove commented code below
+    //TODO - : Remove commented code below
 
-    /*
+
     // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
+   // An empty implementation adversely affects performance during animation.
     override func draw(_ rect: CGRect) {
-        // Drawing code
+      //   Drawing code
     }
-    */
+   
 
 }
