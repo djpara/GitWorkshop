@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     private let TEXT_BOX_WIDTH = CGFloat(200) // TODO: - Change width to 200
     private let TEXT_BOX_HEIGHT = CGFloat(150) // TODO: - Change height to 150
     
-    private let ADD_VIEW_TITLE_BUTTON_WIDTH = CGFloat(175) // TODO: - Change width
+    private let ADD_VIEW_TITLE_BUTTON_WIDTH = CGFloat(200) // TODO: - Change width
     private let ADD_VIEW_TITLE_BUTTON_HEIGHT = CGFloat(44) // TODO: - Change height
     
     // MARK: - Lazy Private Properties
