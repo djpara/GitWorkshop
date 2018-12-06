@@ -32,14 +32,14 @@ class TextBoxView: UIView {
         let newLabel = UILabel()
         newLabel.adjustsFontSizeToFitWidth = true
         newLabel.minimumScaleFactor = 0.5
-        newLabel.font = Theme.Font.popupTitleFont // TODO: - Change font style
+        newLabel.font = Theme.Font.titleFont
         return newLabel
     }()
     
     lazy private var labelDescription: UILabel = {
         let newLabel = UILabel()
         newLabel.numberOfLines = 0
-        newLabel.font = Theme.Font.popupDescriptionFont // TODO: - Change font style
+        newLabel.font = Theme.Font.titleFont
         return newLabel
     }()
     
