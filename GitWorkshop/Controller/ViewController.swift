@@ -27,8 +27,7 @@ class ViewController: UIViewController {
 		alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
 
 		self.present(alert, animated: true)
-	
-        let newTextBox = TextBoxView(title: "Pass", // TODO: - Change title parameter to pass
+        let newTextBox = TextBoxView(title: "Git workshop", // TODO: - Change title parameter to pass
                                      description: "Please enter a title in the text field below",
                                      placeholderText: "Enter title")
         newTextBox.delegate = self
