@@ -16,6 +16,8 @@ class Theme {
         static var popupTextColor = UIColor(red:0.88, green:0.89, blue:0.94, alpha:1.00)
 //        static var white = UIColor.white      // TODO: Uncomment
 //        static var black = UIColor.black      // TODO: Uncomment
+        //ben is awesome
+        //para is lame
     }
     
     class Font: UIFont {
