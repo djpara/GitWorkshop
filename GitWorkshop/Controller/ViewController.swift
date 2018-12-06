@@ -21,6 +21,12 @@ class ViewController: UIViewController {
     // MARK: - Lazy Private Properties
     
     lazy private var textBoxView: TextBoxView = {
+		let alert = UIAlertController(title: "Did you bring your towel?", message: "It's recommended you bring your towel before continuing.", preferredStyle: .alert)
+
+		alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: nil))
+		alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+
+		self.present(alert, animated: true)
         let newTextBox = TextBoxView(title: "Git workshop", // TODO: - Change title parameter to pass
                                      description: "Please enter a title in the text field below",
                                      placeholderText: "Enter title")
@@ -36,7 +42,7 @@ class ViewController: UIViewController {
                                  height: ADD_VIEW_TITLE_BUTTON_HEIGHT)
         newButton.setTitleColor(Theme.Color.popupBackgroundColor, for: .normal)
         newButton.setTitle("Add Title", for: .normal)
-        newButton.titleLabel?.font = Theme.Font.style(.demiBold, size: 18) // TODO: - Change font size
+        newButton.titleLabel?.font = Theme.Font.style(.demiBold, size: 20) // TODO: - Change font size
         newButton.layer.borderWidth = 1
         newButton.layer.borderColor = Theme.Color.popupBackgroundColor.cgColor
         newButton.layer.cornerRadius = 8
